@@ -1,7 +1,9 @@
-import pika, logging
-from settings import url
+import pika, logging, os
+from settings import raw_url
 logging.basicConfig()
 
+# Parse CLODUAMQP_URL (fallback to localhost)
+url = os.environ.get('CLOUDAMQP_URL', f'{raw_url}/%2f')
 params = pika.URLParameters(url)
 params.socket_timeout = 5
 
