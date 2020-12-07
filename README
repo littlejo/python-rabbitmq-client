@@ -1,2 +1,21 @@
-More information
+# Test scripts with docker
+
+cp settings.py ../
+=> Modify ../settings.py
+docker build . -t littlejo/rabbitmq-python-client
+docker run -it -v ${PWD}/../settings.py:/app/settings.py littlejo/rabbitmq-python-client
+[x] Message sent to consumer
+docker run -it -v ${PWD}/../settings.py:/app/settings.py littlejo/rabbitmq-python-client
+[x] Message sent to consumer
+docker run -it -v ${PWD}/../settings.py:/app/settings.py littlejo/rabbitmq-python-client consumer.py
+ PDF processing
+ [x] Received b'User information'
+ PDF processing finished
+ PDF processing
+ [x] Received b'User information'
+ PDF processing finished
+ PDF processing
+
+# More information
+
 https://www.cloudamqp.com/blog/2015-05-21-part2-3-rabbitmq-for-beginners_example-and-sample-code-python.html
